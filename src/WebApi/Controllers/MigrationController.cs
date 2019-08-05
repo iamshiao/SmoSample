@@ -1,13 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.IO;
-using System.Threading.Tasks;
 using WebApi.Business.MigratieScripts;
-using WebApi.Services;
 
 namespace WebApi.Controllers
 {
-	[Route("api/[controller]")]
-	public class MigrationController : Controller
+	[Route("api/[controller]")]	
+	public class MigrationController : ControllerBase
 	{
 		private readonly IRunMigratieScripts _runMigratieScripts;
 
@@ -20,7 +17,7 @@ namespace WebApi.Controllers
 
 		public IActionResult Index()
 		{
-			return View();
+			return Ok();
 		}
 
 		[HttpPost("RunMigrations")]
